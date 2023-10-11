@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import "./ProductCard.scss";
 
 const ProductCard = () => {
@@ -24,7 +25,7 @@ const ProductCard = () => {
     <div className="product-card">
       <div className="wishlist-button" onClick={handleWishlistClick}>
         {isWishlistActive ? (
-          <FavoriteIcon style={{ color: "#ff00ff" }} />
+          <FavoriteBorderOutlinedIcon />
         ) : (
           <FavoriteIcon style={{ color: "#ff0000" }} />
         )}
