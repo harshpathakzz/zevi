@@ -21,7 +21,7 @@ const ProductCard = () => {
   };
 
   return (
-    <div className={`product-card ${isWishlistActive ? "active" : ""}`}>
+    <div className="product-card">
       <div className="wishlist-button" onClick={handleWishlistClick}>
         {isWishlistActive ? (
           <FavoriteIcon style={{ color: "#ff00ff" }} />

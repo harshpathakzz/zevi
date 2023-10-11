@@ -1,15 +1,14 @@
 .product-card {
     display: flex;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
     margin: 10px;
-    height: 300px;
+    height: 400px;
     width: 200px;
     position: relative;
   }
   
-  .wishlist-button {
+  .product-card .wishlist-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -17,10 +16,22 @@
     transition: color 0.3s ease;
   }
   
-  .wishlist-button.active {
-    color: #ff00ff; /* Toggled Heart color */
+  .product-card .product-info {
+    width: 100%; /* Set product info container to take 100% width */
   }
   
+  .product-card .product-info .product-image {
+    height: calc(100% - 40px); /* Adjust image height to fit remaining space */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  .product-card .product-info img {
+    width: 100%; /* Make image fill the container */
+    height: 100%; /* Make image fill the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+  /* Rest of your styles remain the same */
   .product-title {
     font-size: 18px;
     margin-bottom: 10px;
@@ -50,4 +61,5 @@
   .half-star-icon {
     color: #ffa500; /* Half Star color */
   }
+  
   
