@@ -1,0 +1,21 @@
+.accordion {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #f4f4f4;
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: #e1e1e1;
+      }
+      &.open {
+        background-color: #ddd;
+      }
+    }
+    &-content {
+      padding: 10px;
+    }
+  }
+  
