@@ -12,7 +12,7 @@ const ProductCard = () => {
     originalPrice: 50,
     discountedPrice: 30,
     rating: 4.5,
-    imageURL: "https://placehold.co/100x150",
+    imageURL: "https://placehold.co/10x100",
     numRatings: 100,
   };
 
