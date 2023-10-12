@@ -27,6 +27,7 @@ const HamburgerMenu = () => {
 
   return (
     <div className="hamburger-menu">
+      <h1>Search Result</h1>
       {isMobile ? (
         <Drawer
           anchor="left"
