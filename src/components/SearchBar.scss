@@ -35,6 +35,9 @@
   z-index: 999;
 }
 
-.product-trend {
-  
+.product-image {
+  height: 150px;
+  width: 80px;
+  object-fit: cover;
+  overflow: hidden;
 }

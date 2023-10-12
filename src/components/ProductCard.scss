@@ -25,7 +25,8 @@
 }
 
 .product-card .product-info .product-image {
-  height: calc(100% - 40px);
+  height: 100%; /* Set the height to 100% to fill the container */
+  width: 100%; /* Set the width to 100% to fill the container */
   overflow: hidden;
 }
 
@@ -35,9 +36,10 @@
   object-fit: cover;
 }
 
+
 .product-title {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

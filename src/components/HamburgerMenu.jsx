@@ -1,28 +1,61 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  Drawer,
+  List,
+  ListItem,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import "./HamburgerMenu.scss";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { ImCross } from "react-icons/im";
-import { IconContext } from "react-icons";
+import Filter from "./Filter";
 
 const HamburgerMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const [isOpen, setIsOpen] = useState(!isMobile);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setIsOpen(open);
   };
 
   return (
-    <div className={`menu ${isMenuOpen ? "open" : ""}`}>
-      <ul>
-        <h1>Filters</h1>
-        <li>SFilters</li>
-        <li>Filters</li>
-      </ul>
-      <IconContext.Provider value={{ color: "#000", size: "16px" }}>
-        <div className="hamburger-icon" onClick={toggleMenu}>
-          {isMenuOpen ? <ImCross /> : <GiHamburgerMenu />}
+    <div className="hamburger-menu">
+      {isMobile ? (
+        <Drawer
+          anchor="left"
+          open={isOpen}
+          onClose={toggleDrawer(false)}
+          classes={{
+            paper: "drawer-paper",
+          }}
+        >
+          <Filter />
+        </Drawer>
+      ) : (
+        // Render as a div for desktop mode
+        <div className="desktop-drawer">
+          <Filter />
         </div>
-      </IconContext.Provider>
+      )}
+
+      {/* Always display the MenuIcon for mobile mode */}
+      {isMobile && (
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+        >
+          <MenuIcon />
+        </IconButton>
+      )}
     </div>
   );
 };

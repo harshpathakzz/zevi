@@ -1,11 +1,7 @@
 .products-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5px;
     margin: 20px;
-    width: 70%;
-    flex-direction: row;
-  
-    
-  }
-  
+    width: 80%;
+}

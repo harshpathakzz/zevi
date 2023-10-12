@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import "./SearchBar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import { FilterContext } from "../context/FilterContext";
+import { faker } from "@faker-js/faker";
 
 const SearchBar = () => {
   const { dispatch } = useContext(FilterContext);
@@ -56,9 +57,8 @@ const SearchBar = () => {
       {showSuggestions && (
         <div className="suggestions-container">
           <h3>Latest Trends</h3>
-          <div className="product-trend">
-            <img src="product-image-url" alt="Product" />
-            <p>Product Title</p>
+          <div className="product-image">
+            <img src={faker.image.urlLoremFlickr({ category: "fashion" })} />
           </div>
           <h3>Popular Suggestions</h3>
           <p onClick={() => handleSuggestionClick("Popular Suggestion 1")}>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import { FilterContext } from "../context/FilterContext";
-// import "./ProductsList.scss";
+import "./ProductsList.scss";
 
 const ProductsList = () => {
   const { state } = useContext(FilterContext);
