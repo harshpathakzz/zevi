@@ -1,6 +1,7 @@
 import { useContext } from "react";
+import { FaStar } from "react-icons/fa";
 import { FilterContext } from "../context/FilterContext";
-
+import "./Filter.scss";
 const priceRanges = [
   { label: "Under $100", min: 0, max: 100 },
   { label: "$100 - $300", min: 100, max: 300 },
@@ -98,7 +99,13 @@ const Filter = () => {
               checked={state.filters.rating.includes(rating)}
               onChange={() => handleRatingChange(rating)}
             />
-            {rating} star & up
+            {Array.from({ length: 5 }, (_, index) =>
+              index + 1 <= rating ? (
+                <FaStar key={index} className="star-filled" />
+              ) : (
+                <FaStar key={index} className="star-empty" />
+              )
+            )}
           </label>
         </div>
       ))}
