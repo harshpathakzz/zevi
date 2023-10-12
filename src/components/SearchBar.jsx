@@ -3,12 +3,22 @@ import "./SearchBar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import { FilterContext } from "../context/FilterContext";
 import { faker } from "@faker-js/faker";
+import debounce from "lodash/debounce";
 
 const SearchBar = () => {
   const { dispatch } = useContext(FilterContext);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const searchContainerRef = useRef(null);
+
+  const debouncedHandleSearchChange = debounce((searchQuery) => {
+    dispatch({
+      type: "UPDATE_SEARCH_QUERY",
+      searchQuery: searchQuery,
+    });
+    setShowSuggestions(false);
+    setSearchValue(searchQuery);
+  }, 300);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -26,23 +36,21 @@ const SearchBar = () => {
     };
   }, []);
 
-  const handleSearchChange = (searchQuery) => {
-    dispatch({
-      type: "UPDATE_SEARCH_QUERY",
-      searchQuery: searchQuery,
-    });
-    setShowSuggestions(false);
+  const handleInputChange = (event) => {
+    const searchQuery = event.target.value;
     setSearchValue(searchQuery);
-  };
-
-  const handleSuggestionClick = (suggestion) => {
-    setSearchValue(suggestion);
-    handleSearchChange(suggestion);
     setShowSuggestions(false);
+    debouncedHandleSearchChange(searchQuery);
   };
 
   const handleInputClick = () => {
     setShowSuggestions(true);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setSearchValue(suggestion);
+    debouncedHandleSearchChange(suggestion);
+    setShowSuggestions(false);
   };
 
   return (
@@ -51,7 +59,7 @@ const SearchBar = () => {
         type="text"
         placeholder="Search"
         onClick={handleInputClick}
-        onChange={(e) => handleSearchChange(e.target.value)}
+        onChange={handleInputChange}
         value={searchValue}
       />
       <SearchIcon />
