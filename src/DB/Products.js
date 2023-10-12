@@ -8,7 +8,7 @@ export const generateFakeProducts = () => {
       id: faker.database.mongodbObjectId(),
       title: faker.commerce.productName(),
       brand: brands[Math.floor(Math.random() * brands.length)],
-      originalPrice: faker.commerce.price(),
+      price: faker.commerce.price(),
       rating: Math.floor(Math.random() * 41 + 10) / 10,
       numberOfRatings: Math.floor(Math.random() * 191 + 10),
     };
