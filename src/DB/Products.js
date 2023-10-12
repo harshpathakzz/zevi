@@ -6,7 +6,7 @@ export const generateFakeProducts = () => {
   for (let i = 0; i < 10; i++) {
     const product = {
       id: faker.database.mongodbObjectId(),
-      title: faker.commerce.productName(),
+      name: faker.commerce.productName(),
       brand: brands[Math.floor(Math.random() * brands.length)],
       price: faker.commerce.price(),
       rating: Math.floor(Math.random() * 41 + 10) / 10,

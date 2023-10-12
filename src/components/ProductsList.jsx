@@ -11,13 +11,21 @@ const ProductsList = () => {
   const filteredProducts = products.filter((product) => {
     let matches = true;
 
-    if (filters.brands.length > 0) {
+    // Check if the product name contains the search query
+    if (
+      filters.searchQuery &&
+      !product.name.toLowerCase().includes(filters.searchQuery.toLowerCase())
+    ) {
+      matches = false;
+    }
+
+    if (matches && filters.brands.length > 0) {
       matches = filters.brands.includes(product.brand);
     }
 
     if (matches && filters.priceRange.length > 0) {
       const inRange = filters.priceRange.some((range) => {
-        return product.price > range.min && product.price < range.max;
+        return product.price >= range.min && product.price <= range.max;
       });
       matches = inRange;
     }

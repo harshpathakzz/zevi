@@ -35,6 +35,14 @@ const filterReducer = (state, action) => {
           rating: action.rating,
         },
       };
+    case "UPDATE_SEARCH_QUERY":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          searchQuery: action.searchQuery,
+        },
+      };
     default:
       return state;
   }
