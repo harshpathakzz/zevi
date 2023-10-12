@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import { FilterContext } from "../context/FilterContext";
+// import "./ProductsList.scss";
 
 const ProductsList = () => {
   const { state } = useContext(FilterContext);
   const { products, filters } = state;
-
-  console.log(products);
 
   const filteredProducts = products.filter((product) => {
     let matches = true;

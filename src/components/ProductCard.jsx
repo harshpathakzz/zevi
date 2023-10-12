@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const calculateDiscountedPrice = (originalPrice) =>
     originalPrice -
     (originalPrice * Math.floor(Math.random() * (50 - 10 + 1) + 10)) / 100;
-  const discountedPrice = calculateDiscountedPrice(product.price);
+  const discountedPrice = calculateDiscountedPrice(product.price).toFixed(2);
 
   const handleWishlistClick = () => {
     setWishlistActive(!isWishlistActive);
