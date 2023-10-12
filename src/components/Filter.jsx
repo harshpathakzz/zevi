@@ -12,7 +12,7 @@ const priceRanges = [
 
 const brands = ["Nike", "Puma", "Zara", "HRX", "H&M"];
 
-const ratings = [1, 2, 3, 4, 5]; // Added more rating options
+const ratings = [1, 2, 3, 4, 5];
 
 const Filter = () => {
   const { state, dispatch } = useContext(FilterContext);
@@ -42,10 +42,16 @@ const Filter = () => {
   const handleRatingChange = (rating) => {
     let updatedRating;
 
-    // Toggle the selected rating
-    updatedRating = state.filters.rating.includes(rating)
-      ? state.filters.rating.filter((r) => r !== rating)
-      : [...state.filters.rating, rating];
+    if (state.filters.rating.includes(rating)) {
+      updatedRating = state.filters.rating.filter((r) => r !== rating);
+    } else {
+      updatedRating = [rating];
+      state.filters.rating.forEach((r) => {
+        if (r > rating) {
+          updatedRating.push(r);
+        }
+      });
+    }
 
     dispatch({
       type: "UPDATE_RATING_FILTER",
