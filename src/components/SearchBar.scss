@@ -1,11 +1,13 @@
+/* SearchBar styles */
 .search-bar {
   position: relative;
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 5px;
+  box-sizing: border-box;
 
   input {
     flex: 1;
@@ -16,11 +18,13 @@
   }
 
   svg {
-    margin-right: 10px;
+    margin-right: 5px;
     color: #888;
+    display: block;
   }
 }
 
+/* Suggestions container styles */
 .suggestions-container {
   position: absolute;
   margin-top: 10px;
@@ -37,6 +41,10 @@
   h3 {
     font-size: 18px;
     margin-bottom: 10px;
+  }
+
+  .latest-trends {
+    display: flex;
   }
 
   .product-container {
@@ -61,7 +69,9 @@
   }
 }
 
-.latest-trends{
-  display: flex;
-  
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 90%;
+  }
 }
