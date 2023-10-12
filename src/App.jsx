@@ -10,7 +10,7 @@ function App() {
     <>
       <div>
         <SearchBar />
-        <ProductCard />
+        {/* <ProductCard /> */}
         {/* <h1>Accordion Example</h1>
         <Accordion title="Section 1" customStyle="custom-style">
           <p>Content for section 1 goes here.</p>

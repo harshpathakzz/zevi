@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import "./ProductCard.scss";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const [isWishlistActive, setWishlistActive] = useState(false);
-
-  const product = {
-    title: "Sample Product",
-    originalPrice: 50,
-    discountedPrice: 30,
-    rating: 4.5,
-    imageURL: "https://placehold.co/10x100",
-    numRatings: 100,
-  };
+  const calculateDiscountedPrice = (originalPrice) =>
+    originalPrice -
+    (originalPrice * Math.floor(Math.random() * (50 - 10 + 1) + 10)) / 100;
+  const discountedPrice = calculateDiscountedPrice(product.price);
 
   const handleWishlistClick = () => {
     setWishlistActive(!isWishlistActive);
@@ -32,12 +27,12 @@ const ProductCard = () => {
       </div>
       <div className="product-info">
         <div className="product-image">
-          <img src={product.imageURL} alt={product.title} />
+          <img src={product.image} alt={product.name} />
         </div>
-        <h2 className="product-title">{product.title}</h2>
+        <h2 className="product-title">{product.name}</h2>
         <div className="price">
-          <span className="original-price">${product.originalPrice}</span>
-          <span className="discounted-price">${product.discountedPrice}</span>
+          <span className="original-price">${product.price}</span>
+          <span className="discounted-price">${discountedPrice}</span>
         </div>
         <div className="ratings">
           {[...Array(Math.floor(product.rating))].map((_, index) => (
@@ -46,7 +41,7 @@ const ProductCard = () => {
           {product.rating % 1 !== 0 && (
             <StarHalfIcon className="half-star-icon" />
           )}
-          <span style={{ color: "#ccc" }}>({product.numRatings})</span>
+          <span style={{ color: "#ccc" }}>({product.numberOfRatings})</span>
         </div>
       </div>
     </div>
