@@ -28,6 +28,7 @@ const ProductCard = ({ product }) => {
       <div className="product-info">
         <div className="product-image">
           <img src={product.image} alt={product.name} />
+          <div className="view-product-label">View Product</div>
         </div>
         <h2 className="product-title">{product.name}</h2>
         <div className="price">
