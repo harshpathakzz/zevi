@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
       <div className="wishlist-button" onClick={handleWishlistClick}>
-        {isWishlistActive ? (
+        {!isWishlistActive ? (
           <FavoriteBorderOutlinedIcon />
         ) : (
           <FavoriteIcon style={{ color: "#ff0000" }} />
