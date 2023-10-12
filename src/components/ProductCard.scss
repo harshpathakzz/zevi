@@ -1,0 +1,65 @@
+.product-card {
+    display: flex;
+    // border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    height: 250px;
+    width: 120px;
+    position: relative;
+  }
+  
+  .product-card .wishlist-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .product-card .product-info {
+    width: 100%; /* Set product info container to take 100% width */
+  }
+  
+  .product-card .product-info .product-image {
+    height: calc(100% - 40px); /* Adjust image height to fit remaining space */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  .product-card .product-info img {
+    width: 100%; /* Make image fill the container */
+    height: 100%; /* Make image fill the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+  /* Rest of your styles remain the same */
+  .product-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    display: flex;
+    margin-bottom: 10px;
+  
+    .original-price {
+      text-decoration: line-through;
+      margin-right: 10px;
+    }
+  
+    .discounted-price {
+      color: #ff0000; /* Discounted price color */
+    }
+  }
+  
+  .ratings {
+    display: flex;
+    align-items: center;
+    color: #ffa500; /* Star color */
+    font-size: 14px;
+  }
+  
+  .half-star-icon {
+    color: #ffa500; /* Half Star color */
+  }
+  
+  
