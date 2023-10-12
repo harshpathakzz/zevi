@@ -37,6 +37,7 @@ const SearchBar = () => {
 
   const handleSuggestionClick = (suggestion) => {
     setSearchValue(suggestion);
+    handleSearchChange(suggestion);
     setShowSuggestions(false);
   };
 
@@ -65,7 +66,7 @@ const SearchBar = () => {
                   alt="Trend 1"
                 />
               </div>
-              <p>Latest Trend 1</p>
+              <p>Tshirt</p>
             </div>
             <div className="product-container">
               <div className="product-image">
@@ -74,17 +75,15 @@ const SearchBar = () => {
                   alt="Trend 2"
                 />
               </div>
-              <p>Latest Trend 2</p>
+              <p>Jacket</p>
             </div>
           </div>
 
           <h3>Popular Suggestions</h3>
-          <p onClick={() => handleSuggestionClick("Popular Suggestion 1")}>
-            Popular Suggestion 1
+          <p onClick={() => handleSuggestionClick("Denim Jacket")}>
+            Denim Jacket
           </p>
-          <p onClick={() => handleSuggestionClick("Popular Suggestion 2")}>
-            Popular Suggestion 2
-          </p>
+          <p onClick={() => handleSuggestionClick("Skirt")}>Skirt</p>
         </div>
       )}
     </div>
