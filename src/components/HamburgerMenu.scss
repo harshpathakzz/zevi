@@ -1,0 +1,37 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 200px;
+    height: 100vh;
+    background: #474647;
+    padding: 40px 0 0 10px;
+    opacity: 0.5;
+    z-index: -1;
+    transition: left 0.3s ease-in-out;
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-top: 10px;
+        color: #fff;
+      }
+    }
+  
+    .hamburger-icon {
+      display: block;
+      cursor: pointer;
+    }
+  
+    &.open {
+      left: 0;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+  
