@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 export const generateFakeProducts = () => {
   const products = [];
   const brands = ["Nike", "Puma", "Zara", "HRX", "H&M"];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     const product = {
       id: faker.database.mongodbObjectId(),
       title: faker.commerce.productName(),

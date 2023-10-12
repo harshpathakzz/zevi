@@ -34,9 +34,13 @@ const Filter = () => {
   };
 
   const handleRatingChange = (rating) => {
+    const updatedRating = state.filters.rating.includes(rating)
+      ? state.filters.rating.filter((r) => r !== rating)
+      : [...state.filters.rating, rating];
+
     dispatch({
       type: "UPDATE_RATING_FILTER",
-      rating,
+      rating: updatedRating,
     });
   };
 
