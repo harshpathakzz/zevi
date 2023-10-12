@@ -1,7 +1,7 @@
 import SearchBar from "./components/SearchBar";
 import ProductsList from "./components/ProductsList";
 import HamburgerMenu from "./components/HamburgerMenu";
-
+// import "./App.scss";
 function App() {
   return (
     <>
@@ -15,7 +15,7 @@ function App() {
         <SearchBar />
       </div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div style={{ position: "" }}>
+        <div>
           <HamburgerMenu />
         </div>
         <ProductsList />
