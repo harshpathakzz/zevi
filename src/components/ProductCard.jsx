@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import StarIcon from "@mui/icons-material/Star";
@@ -7,10 +7,18 @@ import "./ProductCard.scss";
 
 const ProductCard = ({ product }) => {
   const [isWishlistActive, setWishlistActive] = useState(false);
+
   const calculateDiscountedPrice = (originalPrice) =>
     originalPrice -
     (originalPrice * Math.floor(Math.random() * (50 - 10 + 1) + 10)) / 100;
-  const discountedPrice = calculateDiscountedPrice(product.price).toFixed(2);
+
+  const [discountedPrice, setDiscountedPrice] = useState(
+    calculateDiscountedPrice(product.price).toFixed(2)
+  );
+
+  useEffect(() => {
+    setDiscountedPrice(calculateDiscountedPrice(product.price).toFixed(2));
+  }, [product.price]);
 
   const handleWishlistClick = () => {
     setWishlistActive(!isWishlistActive);
