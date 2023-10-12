@@ -57,9 +57,27 @@ const SearchBar = () => {
       {showSuggestions && (
         <div className="suggestions-container">
           <h3>Latest Trends</h3>
-          <div className="product-image">
-            <img src={faker.image.urlLoremFlickr({ category: "fashion" })} />
+          <div className="latest-trends">
+            <div className="product-container">
+              <div className="product-image">
+                <img
+                  src={faker.image.urlLoremFlickr({ category: "fashion" })}
+                  alt="Trend 1"
+                />
+              </div>
+              <p>Latest Trend 1</p>
+            </div>
+            <div className="product-container">
+              <div className="product-image">
+                <img
+                  src={faker.image.urlLoremFlickr({ category: "fashion" })}
+                  alt="Trend 2"
+                />
+              </div>
+              <p>Latest Trend 2</p>
+            </div>
           </div>
+
           <h3>Popular Suggestions</h3>
           <p onClick={() => handleSuggestionClick("Popular Suggestion 1")}>
             Popular Suggestion 1
