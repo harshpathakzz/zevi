@@ -2,11 +2,17 @@ import { useContext } from "react";
 import { FilterContext } from "../context/FilterContext";
 
 const priceRanges = [
-  { label: "Under $500", min: 0, max: 500 },
+  { label: "Under $100", min: 0, max: 100 },
+  { label: "$100 - $300", min: 100, max: 300 },
+  { label: "$300 - $500", min: 300, max: 500 },
   { label: "$500 - $1000", min: 500, max: 1000 },
-  // and so on
+  { label: "Over $1000", min: 1000, max: Infinity },
+  // Add more price ranges as needed
 ];
+
 const brands = ["Nike", "Puma", "Zara", "HRX", "H&M"];
+
+const ratings = [1, 2, 3, 4, 5]; // Added more rating options
 
 const Filter = () => {
   const { state, dispatch } = useContext(FilterContext);
@@ -34,7 +40,10 @@ const Filter = () => {
   };
 
   const handleRatingChange = (rating) => {
-    const updatedRating = state.filters.rating.includes(rating)
+    let updatedRating;
+
+    // Toggle the selected rating
+    updatedRating = state.filters.rating.includes(rating)
       ? state.filters.rating.filter((r) => r !== rating)
       : [...state.filters.rating, rating];
 
@@ -61,8 +70,8 @@ const Filter = () => {
       ))}
 
       <h3>Price Range</h3>
-      {priceRanges.map((range) => (
-        <div key={range.label}>
+      {priceRanges.map((range, index) => (
+        <div key={index}>
           <label>
             <input
               type="checkbox"
@@ -74,27 +83,19 @@ const Filter = () => {
         </div>
       ))}
 
-      <h3>Rating</h3>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={state.filters.rating.includes(1)}
-            onChange={() => handleRatingChange(1)}
-          />
-          1 star & up
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={state.filters.rating.includes(2)}
-            onChange={() => handleRatingChange(2)}
-          />
-          2 stars & up
-        </label>
-      </div>
+      <h3>Ratings</h3>
+      {ratings.map((rating) => (
+        <div key={rating}>
+          <label>
+            <input
+              type="checkbox"
+              checked={state.filters.rating.includes(rating)}
+              onChange={() => handleRatingChange(rating)}
+            />
+            {rating} star & up
+          </label>
+        </div>
+      ))}
     </div>
   );
 };
